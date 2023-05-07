@@ -3,7 +3,7 @@ from whisper_jax import FlaxWhisperPipline
 import json
 
 # Instantiate pipeline
-pipeline = FlaxWhisperPipline("openai/whisper-base",  batch_size=16)
+pipeline = FlaxWhisperPipline("openai/whisper-large-v2",  batch_size=16)
 
 # JIT compile the forward call - slow, but we only do once
 text = pipeline("elon.mp3", task="transcribe", return_timestamps=True)
