@@ -3,13 +3,13 @@ from whisper_jax import FlaxWhisperPipline
 import json
 
 # Instantiate pipeline
-pipeline = FlaxWhisperPipline("openai/whisper-base", dtype=jnp.bfloat16, batch_size=16)
+pipeline = FlaxWhisperPipline("openai/whisper-base",  batch_size=16)
 
 # JIT compile the forward call - slow, but we only do once
 text = pipeline("elon.mp3", task="transcribe", return_timestamps=True)
 
 # Print text to the console
-print(text)
+# print(text)
 
 # Serialize the dictionary to a JSON-formatted string
 text_str = json.dumps(text)
