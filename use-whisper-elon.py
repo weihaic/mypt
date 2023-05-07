@@ -1,4 +1,4 @@
-
+import jax.numpy as jnp
 
 from whisper_jax import FlaxWhisperPipline
 
@@ -11,4 +11,9 @@ text = pipeline("elon.mp3",task="transcribe", return_timestamps=True)
 # used cached function thereafter - super fast!!
 
 
-print(text)
+#print(text)
+
+
+# save text to a file
+with open("output.txt", "w") as output_file:
+    output_file.write(text)
